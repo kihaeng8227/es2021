@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가위바위보</title>
+  <style>
+    #computer {
+      width: 142px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="computer"></div>
+  <div>
+    <button id="scissors" class="btn">가위</button>
+    <button id="rock" class="btn">바위</button>
+    <button id="paper" class="btn">보</button>
+  </div>
+  <div id="score">0</div>
+  <script>
+    const $computer = document.querySelector('#computer');
+    const $score = document.querySelector('#score');
+    const $rock = document.querySelector('#rock');
+    const $scissors = document.querySelector('#scissors');
+    const $paper = document.querySelector('#paper');
+    const $button = document.querySelectorAll('button');
+    const IMG_URL = './imges/rsp.png';
+    $computer.style.background = `url(${IMG_URL}) -464px 0`; // 가위
+    $computer.style.backgroundSize = 'auto 200px';
+
+    const rspX = {
+      scissors: '0',
+      rock: '-220px',
+      paper: '-440px',
+    };
+
+    let computerChoice = 'scissors'
+    const changeComputerHand = () => {
+      if (computerChoice === 'scissors') {
+        computerChoice = 'rock';
+      } else if (computerChoice === 'rock') {
+        computerChoice = 'paper';
+      } else if (computerChoice === 'paper') {
+        computerChoice = 'scissors';
+      }
+      $computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;
+      // 변수명으로 객체의 속성을 불러올 때는 . 말고 []를 쓴다.
+      $computer.style.backgroundSize = 'auto 200px';
+    }
+    let intervalId = setInterval(changeComputerHand, 50);
+    const clickButton = () => {
+      clearInterval(intervalId);  
+      // $button.disabled = 'disabled';
+      // 점수 계산 및 화면 표시
+      const myChoice = event.target.textContent === '바위' ? 'rock' : event.target.textContent === '가위' ? 'scissors' : 'paper';
+      if(myChoice === 'rock') {
+        if(computerChoice === 'rock') {
+          console.log('무승부');
+          $score.textContent = Number($score.textContent) + 0;
+        } else if(computerChoice === 'scissors') {
+          console.log('승리');
+          $score.textContent = Number($score.textContent) + 1;
+        } else if(computerChoice === 'paper') {
+          console.log('패배');
+          $score.textContent = Number($score.textContent) - 1;
+        }
+      } else if(myChoice === 'scissors') {
+        if(computerChoice === 'rock') {
+          console.log('패배');
+          $score.textContent = Number($score.textContent) - 1;
+        } else if(computerChoice === 'scissors') {
+          console.log('무승부');
+          $score.textContent = Number($score.textContent) + 0;
+        } else if(computerChoice === 'paper') {
+          console.log('승리');
+          $score.textContent = Number($score.textContent) + 1;
+        }
+      } else if(myChoice === 'paper') {
+        if(computerChoice === 'rock') {
+          console.log('승리');
+          $score.textContent = Number($score.textContent) + 1;
+        } else if(computerChoice === 'scissors') {
+          console.log('패배');
+          $score.textContent = Number($score.textContent) - 1;
+        } else if(computerChoice === 'paper') {
+          console.log('무승부');
+          $score.textContent = Number($score.textContent) + 0;
+        }
+      }
+      setTimeout(() => {
+        clearInterval(intervalId); 
+        // $button.disabled = false;
+        intervalId = setInterval(changeComputerHand, 50);
+      }, 1000);
+    };
+    $rock.addEventListener('click', clickButton);
+    $scissors.addEventListener('click', clickButton);
+    $paper.addEventListener('click', clickButton);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </script>
+</body>
+
+</html>

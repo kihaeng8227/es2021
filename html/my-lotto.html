@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 로또 추첨기</title>
+    <style>
+        .ball {
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result">추첨 결과는? </div>
+    <script>
+        const $result = document.querySelector('#result');
+        $result.append(document.createElement('br'));
+        $result.append(document.createElement('br'));
+        let j = 0;
+        setTimeout(() => {
+            let candidate = Array(45).fill().map((e, k) => k + 1);
+            let suffle = [];
+            let result;
+            while (candidate.length > 0) {
+                let random = Math.floor(Math.random() * candidate.length);
+                let save = candidate.splice(random, 1);
+                let save2 = save[0];
+                suffle.push(save2);
+            }
+            result = suffle.slice(0, 6);
+            for (let i = 0; i < 6; i++) {
+                    const $ball = document.createElement('div');
+                    $ball.className = 'ball'
+                    $ball.textContent = result[i];
+                    if (Number($ball.textContent) < 10) {
+                        $ball.style.backgroundColor = 'red';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 20) {
+                        $ball.style.backgroundColor = 'orange';
+                    } else if (Number($ball.textContent) < 30) {
+                        $ball.style.backgroundColor = 'yellow';
+                    } else if (Number($ball.textContent) < 40) {
+                        $ball.style.backgroundColor = 'blue';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 46) {
+                        $ball.style.backgroundColor = 'green';
+                        $ball.style.color = 'white';
+                    }
+                    $result.append($ball);
+                }
+                $result.append(document.createElement('br'));
+                $result.append(document.createElement('br'));
+                j++;
+        
+            },1000)
+            setTimeout(() => {
+            let candidate = Array(45).fill().map((e, k) => k + 1);
+            let suffle = [];
+            let result;
+            while (candidate.length > 0) {
+                let random = Math.floor(Math.random() * candidate.length);
+                let save = candidate.splice(random, 1);
+                let save2 = save[0];
+                suffle.push(save2);
+            }
+            result = suffle.slice(0, 6);
+            for (let i = 0; i < 6; i++) {
+                    const $ball = document.createElement('div');
+                    $ball.className = 'ball'
+                    $ball.textContent = result[i];
+                    if (Number($ball.textContent) < 10) {
+                        $ball.style.backgroundColor = 'red';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 20) {
+                        $ball.style.backgroundColor = 'orange';
+                    } else if (Number($ball.textContent) < 30) {
+                        $ball.style.backgroundColor = 'yellow';
+                    } else if (Number($ball.textContent) < 40) {
+                        $ball.style.backgroundColor = 'blue';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 46) {
+                        $ball.style.backgroundColor = 'green';
+                        $ball.style.color = 'white';
+                    }
+                    $result.append($ball);
+                }
+                $result.append(document.createElement('br'));
+                $result.append(document.createElement('br'));
+                j++;
+        
+            },2000)
+            setTimeout(() => {
+            let candidate = Array(45).fill().map((e, k) => k + 1);
+            let suffle = [];
+            let result;
+            while (candidate.length > 0) {
+                let random = Math.floor(Math.random() * candidate.length);
+                let save = candidate.splice(random, 1);
+                let save2 = save[0];
+                suffle.push(save2);
+            }
+            result = suffle.slice(0, 6);
+            for (let i = 0; i < 6; i++) {
+                    const $ball = document.createElement('div');
+                    $ball.className = 'ball'
+                    $ball.textContent = result[i];
+                    if (Number($ball.textContent) < 10) {
+                        $ball.style.backgroundColor = 'red';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 20) {
+                        $ball.style.backgroundColor = 'orange';
+                    } else if (Number($ball.textContent) < 30) {
+                        $ball.style.backgroundColor = 'yellow';
+                    } else if (Number($ball.textContent) < 40) {
+                        $ball.style.backgroundColor = 'blue';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 46) {
+                        $ball.style.backgroundColor = 'green';
+                        $ball.style.color = 'white';
+                    }
+                    $result.append($ball);
+                }
+                $result.append(document.createElement('br'));
+                $result.append(document.createElement('br'));
+                j++;
+        
+            },3000)
+            setTimeout(() => {
+            let candidate = Array(45).fill().map((e, k) => k + 1);
+            let suffle = [];
+            let result;
+            while (candidate.length > 0) {
+                let random = Math.floor(Math.random() * candidate.length);
+                let save = candidate.splice(random, 1);
+                let save2 = save[0];
+                suffle.push(save2);
+            }
+            result = suffle.slice(0, 6);
+            for (let i = 0; i < 6; i++) {
+                    const $ball = document.createElement('div');
+                    $ball.className = 'ball'
+                    $ball.textContent = result[i];
+                    if (Number($ball.textContent) < 10) {
+                        $ball.style.backgroundColor = 'red';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 20) {
+                        $ball.style.backgroundColor = 'orange';
+                    } else if (Number($ball.textContent) < 30) {
+                        $ball.style.backgroundColor = 'yellow';
+                    } else if (Number($ball.textContent) < 40) {
+                        $ball.style.backgroundColor = 'blue';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 46) {
+                        $ball.style.backgroundColor = 'green';
+                        $ball.style.color = 'white';
+                    }
+                    $result.append($ball);
+                }
+                $result.append(document.createElement('br'));
+                $result.append(document.createElement('br'));
+                j++;
+        
+            },4000)
+            setTimeout(() => {
+            let candidate = Array(45).fill().map((e, k) => k + 1);
+            let suffle = [];
+            let result;
+            while (candidate.length > 0) {
+                let random = Math.floor(Math.random() * candidate.length);
+                let save = candidate.splice(random, 1);
+                let save2 = save[0];
+                suffle.push(save2);
+            }
+            result = suffle.slice(0, 6);
+            for (let i = 0; i < 6; i++) {
+                    const $ball = document.createElement('div');
+                    $ball.className = 'ball'
+                    $ball.textContent = result[i];
+                    if (Number($ball.textContent) < 10) {
+                        $ball.style.backgroundColor = 'red';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 20) {
+                        $ball.style.backgroundColor = 'orange';
+                    } else if (Number($ball.textContent) < 30) {
+                        $ball.style.backgroundColor = 'yellow';
+                    } else if (Number($ball.textContent) < 40) {
+                        $ball.style.backgroundColor = 'blue';
+                        $ball.style.color = 'white';
+                    } else if (Number($ball.textContent) < 46) {
+                        $ball.style.backgroundColor = 'green';
+                        $ball.style.color = 'white';
+                    }
+                    $result.append($ball);
+                }
+                $result.append(document.createElement('br'));
+                $result.append(document.createElement('br'));
+                j++;
+        
+            },5000)
+
+            
+            
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>koongkoongdda</title>
+</head>
+<body>
+    <h1>쿵쿵따 게임</h1>
+    <span>순서: </span><span id="order">1</span> <br>
+    <span>제시어: </span><span id="text"></span> <br>
+    <input type="text" placeholder="3글자 단어를 입력하세요">
+    <button>확인</button>
+
+    <script>
+        
+        const peopleNumber = Number(prompt('몇명이 참가 하나요'));
+        const $button = document.querySelector('button');
+        const $input = document.querySelector('input');
+        const $text = document.querySelector('#text');
+        const $order = document.querySelector('#order');
+        let word;
+        let newWord;
+        let orderNumber = Number($order.textContent)
+        const newText = function(){
+            word = $input.value;
+        }
+        const onClickButton = function(){
+            if(!newWord && word.length === 3){
+                newWord = word;
+                $text.textContent = newWord;
+                if(orderNumber < peopleNumber){
+                    orderNumber = orderNumber + 1 ;
+                    $order.textContent = orderNumber;
+                }
+                else{
+                    orderNumber = 1;
+                    $order.textContent = 1;
+                }
+            }
+            else if(word.length !== 3){
+                alert('3글자를 입력하세요');
+            }
+            else{
+                if(newWord[newWord.length - 1] === word[0] && word.length === 3){
+                    newWord = word;
+                    $text.textContent = newWord;
+                    if(orderNumber < peopleNumber){
+                        orderNumber = orderNumber + 1 ;
+                        $order.textContent = orderNumber;
+                    }
+                    else{
+                    orderNumber = 1;
+                    $order.textContent = 1;
+                    }
+                 }
+                else{
+                    alert('틀렸습니다');
+                    // $text.textContent = undefined;
+                    orderNumber = 1;
+                    $order.textContent = 1;y
+                }
+                
+            }
+            $input.value = '';
+            $input.focus();
+        }
+        $button.addEventListener('click', onClickButton);
+        $input.addEventListener('input', newText);
+    </script>
+</body>
+</html>
